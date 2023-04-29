@@ -1,7 +1,11 @@
 # doge_trader_supremebeme
 Buy and Sell DOGE on ProtonDEX / SuchDEX based on new twitter follower count.
 
-I created a Python script that will BUY or SELL $DOGE using SuchDEX.com every time I gain or lose a follower on Twitter
+I created a Python script that will BUY or SELL $DOGE using [SuchDEX.com](https://SuchDEX.com) every time I gain or lose a follower on Twitter
+
+It uses [Proton DEX](https://protondex.com/dex?referrer=paul) order books and API, you need a [WebAuth](https://WebAuth.com) wallet to start.
+
+Deposit stablecoin to WebAuth wallet and Mint XMD [here](https://metaldollar.com).
 
 Help test it out by following me! https://twitter.com/supremebeme
 
