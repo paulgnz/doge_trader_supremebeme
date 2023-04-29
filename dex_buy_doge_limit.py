@@ -28,7 +28,6 @@ def main(order_side, amount_xmd):
     # Import your account private key here
     wallet.import_key('mywallet', 'PVT_K1_YOU_KEY_HERE')
 
-    username = "trading.paul"
     #For testnet use https://protontestnet.greymass.com
     eosapi.set_node('https://proton.greymass.com')
     info = eosapi.get_info()
