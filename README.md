@@ -12,4 +12,17 @@ Call
 python ./twitter_get_followers.py
 ```
 
-The script will check how many followers you have gained or lost since last check, then call the `dex_buy_doge_limit.py` script with the arguments (order_side, amount)
+The script will check how many followers you have gained or lost since last check, then call the `dex_buy_doge_limit.py` script with the arguments `(order_side, amount)`
+
+You can buy or sell XDOGE manually using the dex_buy_doge_limit script manually...
+
+This will buy 1 XMD worth of DOGE
+
+```
+python ./dex_buy_doge_limit.py buy 1
+```
+and this will sell 1 XMD worth of DOGE
+
+```
+python ./dex_buy_doge_limit.py sell 1
+```
