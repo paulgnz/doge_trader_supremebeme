@@ -7,7 +7,21 @@ Help test it out by following me! https://twitter.com/supremebeme
 
 https://twitter.com/supremebeme/status/1652393427701727233
 
-Call 
+If you want to run this script yourself, make sure you have access to [twitter api](https://developer.twitter.com/)
+
+Replace the following values in `twitter_get_followers.py` with your own API keys and access tokens
+```
+    consumer_key = 'api key'
+    consumer_secret = 'api secret'
+    access_token = 'access token'
+    access_token_secret = 'access secret'
+```
+Insert your private key on line 29 of `dex_buy_doge_limit.py`
+```
+    wallet.import_key('mywallet', 'INSERT YOUR PVT KEY HERE')
+```
+
+Then Call 
 ```
 python ./twitter_get_followers.py
 ```
