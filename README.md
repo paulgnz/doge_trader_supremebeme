@@ -21,6 +21,11 @@ Insert your private key on line 29 of `dex_buy_doge_limit.py`
     wallet.import_key('mywallet', 'INSERT YOUR PVT KEY HERE')
 ```
 
+Add your Proton username on line 37 of `dex_buy_doge_limit.py`
+```
+    USERNAME = 'trading.paul'
+```
+
 Then Call 
 ```
 python ./twitter_get_followers.py
