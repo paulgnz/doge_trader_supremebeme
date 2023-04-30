@@ -20,12 +20,12 @@ Replace the following values in `twitter_get_followers.py` with your own API key
     access_token = 'access token'
     access_token_secret = 'access secret'
 ```
-Insert your private key on line 29 of `dex_buy_doge_limit.py`
+Insert your private key on line 29 of `dex_buy_doge_market.py`
 ```
     wallet.import_key('mywallet', 'INSERT YOUR PVT KEY HERE')
 ```
 
-Add your Proton username on line 37 of `dex_buy_doge_limit.py`
+Add your Proton username on line 37 of `dex_buy_doge_market.py`
 ```
     USERNAME = 'trading.paul'
 ```
@@ -35,17 +35,17 @@ Then Call
 python ./twitter_get_followers.py
 ```
 
-The script will check how many followers you have gained or lost since last check, then call the `dex_buy_doge_limit.py` script with the arguments `(order_side, amount)`
+The script will check how many followers you have gained or lost since last check, then call the `dex_buy_doge_market.py` script with the arguments `(order_side, amount)`
 
-You can buy or sell XDOGE manually using the dex_buy_doge_limit script manually...
+You can buy or sell XDOGE manually using the dex_buy_doge_market script manually...
 
 This will buy 1 XMD worth of DOGE
 
 ```
-python ./dex_buy_doge_limit.py buy 1
+python ./dex_buy_doge_market.py buy 1
 ```
 and this will sell 1 XMD worth of DOGE
 
 ```
-python ./dex_buy_doge_limit.py sell 1
+python ./dex_buy_doge_market.py sell 1
 ```
