@@ -54,9 +54,9 @@ def main():
                 action = None
                 #return
 
-            # Call the dex_buy_doge_limit.py script with the appropriate action and number of DOGECOIN        
+            # Call the dex_buy_doge_market.py script with the appropriate action and number of DOGECOIN        
             if action:
-                script_path = '.\\dex_buy_doge_limit.py'
+                script_path = '.\\dex_buy_doge_market.py'
                 subprocess.run(['python', script_path, action, str(abs(difference))])
 
         print(f'Your account @{screen_name} currently has {followers_count} followers.')
