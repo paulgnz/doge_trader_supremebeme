@@ -26,7 +26,7 @@ def main(order_side, amount_xmd):
     
 
     # Import your account private key here
-    wallet.import_key('mywallet', 'PVT_K1_YOU_KEY_HERE')
+    wallet.import_key('mywallet', 'PVT_K1')
 
     #For testnet use https://protontestnet.greymass.com
     eosapi.set_node('https://proton.greymass.com')
@@ -34,20 +34,20 @@ def main(order_side, amount_xmd):
     print(info)
 
     # Replace with your account name
-    USERNAME = 'youraccount'
+    USERNAME = 'trading.paul'
     permission = {USERNAME: 'dex'}
 
     # Replace Trade Parameters
     BID_TOKEN_CONTRACT = 'xtokens'
     BID_TOKEN_SYMBOL = 'XDOGE'
     BID_TOKEN_PRECISION = 6
-    BID_AMOUNT = amount_xmd / dogecoin_price + 0.01  # Amount of XDOGE to use for sell order
+    BID_AMOUNT = amount_xmd / dogecoin_price * 1.01  # Amount of XDOGE to use for sell order
     
 
     ASK_TOKEN_CONTRACT = 'xmd.token'
     ASK_TOKEN_SYMBOL = 'XMD'
     ASK_TOKEN_PRECISION = 6
-    ASK_AMOUNT = amount_xmd  # Amount of XMD to use for buy order
+    ASK_AMOUNT = amount_xmd # Amount of XMD to use for buy order
 
     MARKET_ID = 12  # Unique ID of market
     PRICE = dogecoin_price  # Price of XDOGE/XMD to place order at
@@ -58,18 +58,20 @@ def main(order_side, amount_xmd):
         ORDER_SIDE = 2
     ASK_AMOUNT = amount_xmd
     ORDER_TYPE = 1  # Limit Order
-    FILL_TYPE = 0  # Good Till Cancel
+    FILL_TYPE = 1  # Good Till Cancel
 
     if ORDER_SIDE == 1:
         token_contract = ASK_TOKEN_CONTRACT
         token_symbol = ASK_TOKEN_SYMBOL
         token_precision = ASK_TOKEN_PRECISION
         amount = ASK_AMOUNT
+        market_price = 9223372036854775806
     else:
         token_contract = BID_TOKEN_CONTRACT
         token_symbol = BID_TOKEN_SYMBOL
         token_precision = BID_TOKEN_PRECISION
         amount = BID_AMOUNT
+        market_price = int(1)
 
     args1 = {
         'from': USERNAME,
@@ -94,7 +96,7 @@ def main(order_side, amount_xmd):
         },
         'referrer': '',
         'quantity': int(amount * pow(10, token_precision)),
-        'price': int(PRICE * pow(10, ASK_TOKEN_PRECISION)),
+        'price': market_price,
         'trigger_price': 0
     }
 
