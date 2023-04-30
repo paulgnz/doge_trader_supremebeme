@@ -32,38 +32,39 @@ def write_follower_count(file_name, count):
         file.write(str(count))
 
 def main():
-    api = get_api()
-    screen_name = 'supremebeme'  # Replace with your Twitter handle (without '@')
-    followers_count = get_follower_count(api, screen_name)
-    
-    file_name = 'previous_follower_count.txt'
-    previous_count = read_previous_follower_count(file_name)
+    while True:
+        api = get_api()
+        screen_name = 'supremebeme'  # Replace with your Twitter handle (without '@')
+        followers_count = get_follower_count(api, screen_name)
+        
+        file_name = 'previous_follower_count.txt'
+        previous_count = read_previous_follower_count(file_name)
 
-    if previous_count is not None:
-        difference = followers_count - previous_count
+        if previous_count is not None:
+            difference = followers_count - previous_count
 
-        if difference > 0:
-            print(f'Your account @{screen_name} gained {difference} new followers since last check.')
-            action = 'buy'
-        elif difference < 0:
-            print(f'Your account @{screen_name} lost {-difference} followers since last check.')
-            action = 'sell'
-        else:
-            print('No new followers, have a nice day!')
-            action = None
-            #return
+            if difference > 0:
+                print(f'Your account @{screen_name} gained {difference} new followers since last check.')
+                action = 'buy'
+            elif difference < 0:
+                print(f'Your account @{screen_name} lost {-difference} followers since last check.')
+                action = 'sell'
+            else:
+                print('No new followers, have a nice day!')
+                action = None
+                #return
 
-        # Call the dex_buy_doge_limit.py script with the appropriate action and number of DOGECOIN        
-        if action:
-            script_path = '.\\dex_buy_doge_limit.py'
-            subprocess.run(['python', script_path, action, str(abs(difference))])
+            # Call the dex_buy_doge_limit.py script with the appropriate action and number of DOGECOIN        
+            if action:
+                script_path = '.\\dex_buy_doge_limit.py'
+                subprocess.run(['python', script_path, action, str(abs(difference))])
 
-    print(f'Your account @{screen_name} currently has {followers_count} followers.')
+        print(f'Your account @{screen_name} currently has {followers_count} followers.')
 
-    write_follower_count(file_name, followers_count)
+        write_follower_count(file_name, followers_count)
 
-    print("Waiting for 15 minutes before checking again.")
-    time.sleep(15 * 60)  # Sleep for 15 minutes    
+        print("Waiting for 15 minutes before checking again.")
+        time.sleep(15 * 60)  # Sleep for 15 minutes    
 
 
 if __name__ == '__main__':
