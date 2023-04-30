@@ -1,6 +1,7 @@
 import os
 import tweepy
 import subprocess
+import time
 
 def get_api():
     # Replace the following values with your own API keys and access tokens
@@ -49,15 +50,21 @@ def main():
             action = 'sell'
         else:
             print('No new followers, have a nice day!')
-            return
+            action = None
+            #return
 
-        # Call the dex_buy_doge_limit.py script with the appropriate action and number of DOGECOIN
-        script_path = '.\\dex_buy_doge_limit.py'
-        subprocess.run(['python', script_path, action, str(abs(difference))])
+        # Call the dex_buy_doge_limit.py script with the appropriate action and number of DOGECOIN        
+        if action:
+            script_path = '.\\dex_buy_doge_limit.py'
+            subprocess.run(['python', script_path, action, str(abs(difference))])
 
     print(f'Your account @{screen_name} currently has {followers_count} followers.')
 
     write_follower_count(file_name, followers_count)
+
+    print("Waiting for 15 minutes before checking again.")
+    time.sleep(15 * 60)  # Sleep for 15 minutes    
+
 
 if __name__ == '__main__':
     main()
